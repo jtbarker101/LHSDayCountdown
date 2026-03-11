@@ -1,0 +1,32 @@
+body{
+    background-color: blue;
+    color: white;
+    font-size: 50px;
+}
+
+progress {
+    align-items: center;
+    width: 1000px;
+    height: 100px;
+    background-color: navy;
+    border: 2px solid white;
+    border-radius: 40px;
+}
+
+progress::-webkit-progress-bar {
+    background-color: navy;
+    border-radius: 40px;
+}
+
+progress::-webkit-progress-value{
+    background-color: orange;
+    border-radius: 39px;
+    transition: width 0.4s ease;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+  padding: 12px;
+}
