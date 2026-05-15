@@ -22,14 +22,15 @@ const schedule = [
     {name: "Period 7", start: "13:10", end: "14:45", days: [4], id: 16},
 
     //Fridays
-    {name: "Period 1", start: "8:25", end: "9:10", days: [5], id: 17},
-    {name: "Period 2", start: "9:15", end: "10:00", days: [5], id: 18},
-    {name: "Period 3", start: "10:05", end: "10:50", days: [5], id: 19},
-    {name: "Period 4", start: "10:55", end: "11:40", days: [5], id: 20},
-    {name: "Period 5", start: "11:45", end: "12:30", days: [5], id: 21},
-    {name: "Lunch", start: "12:35", end: "13:05", days: [5], id: 22},
-    {name: "Period 6", start: "13:10", end: "13:55", days: [5], id: 23},
-    {name: "Period 7", start: "14:00", end: "14:45", days: [5], id: 24}
+    {name: "Period 1", start: "8:25", end: "9:05", days: [5], id: 17},
+    {name: "Period 2", start: "9:10", end: "9:45", days: [5], id: 18},
+    {name: "Period 3", start: "9:50", end: "10:25", days: [5], id: 19},
+    {name: "Period 4", start: "10:30", end: "11:05", days: [5], id: 20},
+    {name: "Period 5", start: "11:10", end: "11:45", days: [5], id: 21},
+    {name: "Lunch", start: "11:50", end: "12:20", days: [5], id: 22},
+    {name: "Period 6", start: "12:25", end: "13:00", days: [5], id: 23},
+    {name: "Period 7", start: "13:05", end: "13:40", days: [5], id: 24},
+    {name: "Senior Assembly", start: "13:40", end: "14:45", days: [5], id: 25}
 ]
 
 function getSchedule()
@@ -106,7 +107,7 @@ function main()
         document.getElementById('percentage-left').value = percentage;
 
         const lastEnd = getTime(today[today.length-1].end);
-        document.getElementById('day-end-left').textContent = `day ends in ${timeLeft(lastEnd - now)}`;
+        document.getElementById('day-end-left').textContent = `Day ends in ${timeLeft(lastEnd - now)}`;
     } else if (next) {
         document.getElementById('period-name').textContent = 'Passing Period';
         const untilNext = next.start - now;
@@ -128,7 +129,7 @@ function main()
         if (passingStart) {
             const totalPassingDuration = next.start - passingStart;
             const remainingPassingTime = next.start - now;
-            const passingPercentage = Math.min(100, Math.max(0, (remainingPassingTime / totalPassingDuration) * 100));
+            const passingPercentage = 100-((Math.min(100, Math.max(0, (remainingPassingTime / totalPassingDuration) * 100))));
             document.getElementById('percentage-left').value = passingPercentage;
         }
         
